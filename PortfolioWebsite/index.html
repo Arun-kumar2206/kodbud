@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arun Kumar Veguru | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Software Engineer</p>
+          <h1>Arun Kumar Veguru</h1>
+          <p class="bio">
+            I am a passionate software engineer with experience in developing
+            web applications and mobile apps. I love building clean, usable
+            interfaces and solving complex problems with JavaScript, React, and
+            Node.js.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">View Projects</a>
+            <a class="button ghost" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="profile.avif" alt="Profile Picture" class="profile-pic" />
+          <p class="card-name">Arun Kumar Veguru</p>
+          <p class="card-role">Software Engineer</p>
+          <p class="card-location">Andhra Pradesh, India</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel" id="education">
+          <h2>Education</h2>
+          <p class="subhead">Academic foundation and focus areas.</p>
+          <div class="item">
+            <p class="item-title">Bachelor of Science in Computer Science</p>
+            <p class="item-meta">
+              Javaharlal Nehru Technological University, 2023 - 2027
+            </p>
+          </div>
+        </section>
+
+        <section class="panel" id="skills">
+          <h2>Skills</h2>
+          <p class="subhead">Tools and technologies I work with.</p>
+          <ul class="pill-list">
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>HTML/CSS</li>
+            <li>Git</li>
+            <li>REST APIs</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="projects">
+          <h2>Projects</h2>
+          <p class="subhead">Selected work that showcases my range.</p>
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>Personal Portfolio Website</h3>
+              <p>
+                A responsive portfolio built with HTML, CSS, and JavaScript to
+                showcase my work, skills, and contact information.
+              </p>
+              <span class="tag">UI Design</span>
+              <span class="tag">Responsive</span>
+            </article>
+            <article class="project-card">
+              <h3>Task Manager App</h3>
+              <p>
+                A task management application using React and Node.js, allowing
+                users to create, update, and track tasks with ease.
+              </p>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+            </article>
+            <article class="project-card">
+              <h3>Open-Source Sprint</h3>
+              <p>
+                Contributed UI fixes and performance improvements to open-source
+                repositories while collaborating with global teams.
+              </p>
+              <span class="tag">Collaboration</span>
+              <span class="tag">Performance</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="contact">
+          <h2>Contact</h2>
+          <p class="subhead">
+            Let us connect for opportunities or collaboration.
+          </p>
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+              />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about your project or idea"
+              ></textarea>
+            </div>
+            <button class="button" type="submit">Send Message</button>
+            <p class="contact-note">
+              Prefer email?
+              <a href="mailto:arunveguru2005@gmail.com"
+                >arunveguru2005@gmail.com</a
+              >
+            </p>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
