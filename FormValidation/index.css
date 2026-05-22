@@ -1,0 +1,139 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--ink: #0f172a;
+	--muted: #64748b;
+	--accent: #f97316;
+	--accent-dark: #ea580c;
+	--bg: #f8fafc;
+	--card: #ffffff;
+	--line: rgba(15, 23, 42, 0.12);
+	--error: #dc2626;
+}
+
+body {
+	font-family: "Outfit", sans-serif;
+	background: radial-gradient(circle at top, #fff7ed, #f8fafc 60%);
+	color: var(--ink);
+	min-height: 100vh;
+}
+
+.page {
+	display: grid;
+	place-items: center;
+	padding: 48px 20px;
+}
+
+.card {
+	width: min(560px, 100%);
+	background: var(--card);
+	border-radius: 24px;
+	padding: 32px;
+	box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+	border: 1px solid var(--line);
+}
+
+.intro {
+	margin-bottom: 28px;
+}
+
+.pill {
+	display: inline-block;
+	background: rgba(249, 115, 22, 0.15);
+	color: var(--accent-dark);
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	padding: 6px 12px;
+	border-radius: 999px;
+	margin-bottom: 12px;
+	font-weight: 600;
+}
+
+.intro h1 {
+	font-size: clamp(28px, 4vw, 36px);
+	margin-bottom: 10px;
+}
+
+.intro p {
+	color: var(--muted);
+	line-height: 1.6;
+}
+
+form {
+	display: grid;
+	gap: 18px;
+}
+
+.field {
+	display: grid;
+	gap: 8px;
+}
+
+label {
+	font-weight: 600;
+	font-size: 14px;
+}
+
+input,
+textarea {
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	padding: 12px 14px;
+	font-size: 15px;
+	font-family: inherit;
+	background: #fdfcfb;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--accent);
+	box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+input.invalid,
+textarea.invalid {
+	border-color: var(--error);
+	box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.error {
+	color: var(--error);
+	font-size: 12px;
+	min-height: 16px;
+}
+
+.primary {
+	background: linear-gradient(120deg, var(--accent), var(--accent-dark));
+	color: white;
+	border: none;
+	padding: 14px 18px;
+	border-radius: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px rgba(249, 115, 22, 0.25);
+}
+
+.success {
+	font-size: 14px;
+	color: #0f766e;
+	font-weight: 600;
+	min-height: 18px;
+}
+
+@media (max-width: 480px) {
+	.card {
+		padding: 24px;
+	}
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaHire - Job Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <div class="intro">
+          <span class="pill">Job application</span>
+          <h1>Tell us about yourself</h1>
+          <p>
+            Apply to NovaHire in less than three minutes. We will only use your
+            details to contact you about this role.
+          </p>
+        </div>
+
+        <form id="applicationForm" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Jordan Lee"
+              autocomplete="name"
+              required
+            />
+            <small class="error" id="nameError"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="jordan@company.com"
+              autocomplete="email"
+              required
+            />
+            <small class="error" id="emailError"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="(555) 555-0199"
+              autocomplete="tel"
+              required
+            />
+            <small class="error" id="phoneError"></small>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Share your experience, availability, or portfolio link."
+              required
+            ></textarea>
+            <small class="error" id="messageError"></small>
+          </div>
+
+          <button class="primary" type="submit">Submit application</button>
+          <p class="success" id="successMessage"></p>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("applicationForm");
+      const fields = {
+        name: {
+          input: document.getElementById("name"),
+          error: document.getElementById("nameError"),
+          validator: (value) => value.trim().length >= 2,
+          message: "Please enter your full name.",
+        },
+        email: {
+          input: document.getElementById("email"),
+          error: document.getElementById("emailError"),
+          validator: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
+          message: "Enter a valid email address.",
+        },
+        phone: {
+          input: document.getElementById("phone"),
+          error: document.getElementById("phoneError"),
+          validator: (value) => /^\+?[\d\s().-]{7,}$/.test(value.trim()),
+          message: "Enter a valid phone number.",
+        },
+        message: {
+          input: document.getElementById("message"),
+          error: document.getElementById("messageError"),
+          validator: (value) => value.trim().length >= 10,
+          message: "Message should be at least 10 characters.",
+        },
+      };
+
+      const successMessage = document.getElementById("successMessage");
+
+      const validateField = (field) => {
+        const value = field.input.value;
+        const isValid = field.validator(value);
+
+        field.error.textContent = isValid ? "" : field.message;
+        field.input.classList.toggle("invalid", !isValid);
+        return isValid;
+      };
+
+      Object.values(fields).forEach((field) => {
+        field.input.addEventListener("input", () => validateField(field));
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const results = Object.values(fields).map((field) =>
+          validateField(field),
+        );
+        const allValid = results.every(Boolean);
+
+        if (allValid) {
+          successMessage.textContent =
+            "Thanks! Your application has been received.";
+          form.reset();
+          Object.values(fields).forEach((field) => {
+            field.input.classList.remove("invalid");
+            field.error.textContent = "";
+          });
+        } else {
+          successMessage.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>
